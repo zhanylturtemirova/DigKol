@@ -1,17 +1,20 @@
 # Digital Kolkhoz
 
+Umbrella-project for villages to co-own assets, vote, and crowdfund using smart contracts. No hidden money, no landlords, everything highly transparent and community-owned.
+
 an Umrella project (a bundle of social alls) to build shared economy and shared ownership of assets for dedicated village's communities living.
 
 ## TODO:
-- [ ] Member A bought 10% of greenhouse A. (smart-contract event recorded)
+- [x] Member A bought 10% of greenhouse A. (smart-contract event recorded)
+- [ ] when click "Buy 10%" button on UI -> trigger smart-contract event
 - [ ] create wallet for shared asset (https://speedrunethereum.com/challenge/multisig)
 
 
 ### WHY
-- Cities are overpopulated. Come back to village life.
-- Kolkhoz has been great until its not :) Transparency will help.
+- Cities are overpopulated. Remote work can help people come back to village life.
+- Kolkhoz has been great until its not :) Transparency can help to patch that.
 - Shared ownership of assets will help to build community life.
-- Villages are dying. Let's revive them.
+- Villages are dying. Let's revive 'em.
 
 ### HOW
 - Remote working villagers
@@ -47,7 +50,7 @@ an Umrella project (a bundle of social alls) to build shared economy and shared 
 - Who/What/When
   ### Voting
   - idea "Let's grow own vegetables" added in pool of ideas 
-  - community voting for the idea: priority, possible options, possible prices
+  - community is voting for the idea: priority, possible options, possible prices
     - Member A voted for idea "Greenhouse" (smart-contract event recorded)
     - Member B voted for idea "Greenhouse" (smart-contract event recorded)
 
@@ -88,8 +91,8 @@ in 5 years...
   - What if members who didn't vote want to join later?
   - What if members who didn't vote want to use already built shared assets? How paid members will be compensated?
 
-  - How to enroll money?
-  - How to get your money back? 
+  - How to enroll money as a community member?
+  - How to get your money back as a community member? 
   - How to pass ownership right from member A to member A's family?
 
 

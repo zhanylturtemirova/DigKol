@@ -22,10 +22,11 @@ const Home: NextPage = () => {
         <div className="px-5">
           <h1 className="text-center">
             <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">CrowdFund</span>
+            <span className="block text-4xl font-bold">DiKo</span>
           </h1>
           <p className="text-center text-lg opacity-70 mb-8">
-            Discover and support innovative projects on the blockchain
+            Digital Kolkhoz (DiKo) is a decentralized platform empowering communities to collaboratively fund and manage
+            local projects transparently.
           </p>
 
           {/* Navigation Cards */}

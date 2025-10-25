@@ -14,64 +14,67 @@ import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 const mockProjectData = {
   1: {
     id: 1,
-    title: "Eco-Friendly Water Bottle",
-    description:
-      "A revolutionary water bottle made from recycled ocean plastic that keeps your drinks cold for 24 hours and hot for 12 hours. Made from 100% recycled materials, this bottle is not only good for the environment but also incredibly functional.",
+    title: "Milk cow",
+    description: "Raising a healthy reproductive cow to provide fresh milk and calves for the community",
     longDescription: `
-      Our Eco-Friendly Water Bottle is the result of years of research and development in sustainable materials. We've partnered with ocean cleanup organizations to source plastic waste directly from the ocean, transforming it into a premium, functional water bottle.
+    Owning a cow as a community asset provides daily food security and long-term economic benefits. The cow produces milk for members and calves that grow into future assets.
 
-      **Key Features:**
-      - Made from 100% recycled ocean plastic
-      - 24-hour cold retention, 12-hour hot retention
-      - BPA-free and food-safe materials
-      - Leak-proof design with one-handed operation
-      - Dishwasher safe
-      - Lifetime warranty
+Benefits
+	•	Daily Milk Supply – fresh dairy for families or for selling to generate shared income.
+	•	Calving – each calf can be raised, sold, or kept to grow the herd.
+	•	Natural Asset Growth – cows reproduce, meaning the community’s wealth increases over time.
+	•	Shared Risk – purchase and maintenance costs are spread among members rather than one person.
+	•	Local Food Independence – less reliance on external markets and fluctuating prices.
 
-      **Environmental Impact:**
-      Each bottle removes approximately 50 plastic bottles worth of waste from the ocean. With your support, we can scale production and make a significant impact on ocean plastic pollution.
+Responsibilities & Risks
+	•	Feeding & Care – daily food, vet care, vaccinations.
+	•	Shared Workload – milking schedule, health monitoring, breeding decisions.
+	•	Market Price Fluctuations – milk and calf prices may vary with season or economy.
+	•	Animal Health Risks – illness or infertility can reduce productivity.
+	•	Decision-Making – the community must agree on how to share milk, sell calves, and divide profits.
 
-      **Production Timeline:**
-      - Month 1-2: Finalize design and tooling
-      - Month 3-4: Begin production of first batch
-      - Month 5-6: Quality testing and refinement
-      - Month 7-8: Mass production and shipping
+Example Timeline
+	•	Month 1: Voting & crowdfunding
+	•	Month 2: Cow purchased, ownership shares recorded via smart contract
+	•	Month 3: Daily milk distribution starts
+	•	Month 12: First calf expected; asset value increases
+	•	Year 2+: Calves sold or added to herd, profits distributed or reinvested
     `,
     creator: "0x1234567890123456789012345678901234567890",
-    creatorName: "Ocean Cleanup Co.",
-    goal: 50000,
-    raised: 25000,
-    backers: 150,
+    creatorName: "Maria H.",
+    goal: 2000,
+    raised: 890,
+    backers: 15,
     daysLeft: 15,
-    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&h=600&fit=crop",
-    category: "Environment",
+    image: "https://images.unsplash.com/photo-1567879656049-f2265f23d8f8?w=400&h=300&fit=crop",
+    category: "Livestock",
     featured: true,
     risks:
-      "As with any new product, there are risks of production delays, quality issues, or supply chain disruptions. We've mitigated these risks by working with experienced manufacturers and having backup suppliers.",
+      "Owning a cow requires daily care, feeding, and veterinary attention. The community must coordinate responsibilities and share costs. Market prices for milk and calves can fluctuate, impacting returns. Illness or infertility are risks that could reduce productivity. Clear agreements on milk distribution and calf sales are essential to avoid conflicts.",
     rewards: [
       {
         id: 1,
-        title: "Early Bird Special",
-        description: "One Eco-Friendly Water Bottle in your choice of color",
+        title: "Milk supply",
+        description: "Monthly supply of fresh milk from the community cow",
         amount: 25,
         backers: 45,
-        estimatedDelivery: "March 2024",
+        estimatedDelivery: "March 2026",
       },
       {
         id: 2,
-        title: "Standard Bottle",
-        description: "One Eco-Friendly Water Bottle in your choice of color",
+        title: "Milk, butter, cream",
+        description: "Monthly supply of fresh milk, butter, and cream",
         amount: 35,
         backers: 78,
-        estimatedDelivery: "April 2024",
+        estimatedDelivery: "April 2026",
       },
       {
         id: 3,
-        title: "Bundle Pack",
-        description: "Two Eco-Friendly Water Bottles + Custom Engraving",
-        amount: 60,
+        title: "Own a calf",
+        description: "Ownership of a calf born from the community cow",
+        amount: 180,
         backers: 27,
-        estimatedDelivery: "April 2024",
+        estimatedDelivery: "November 2026",
       },
     ],
   },
