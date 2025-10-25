@@ -62,15 +62,15 @@ const mockProjects = [
   },
   {
     id: 5,
-    title: "Educational VR Platform",
-    description: "Immersive learning experiences for students worldwide",
+    title: "Greenhouse, East wing",
+    description: "Building a community greenhouse to grow fresh produce year-round",
     creator: "0x5678901234567890123456789012345678901234",
     goal: 80000,
     raised: 55000,
     backers: 134,
     daysLeft: 18,
-    image: "https://images.unsplash.com/photo-1592478411213-6153e4c4c8f8?w=400&h=300&fit=crop",
-    category: "Education",
+    image: "https://images.unsplash.com/photo-1661264047307-4d692250a7ac?w=400&h=300&fit=crop",
+    category: "CommunityZones",
     featured: false,
   },
   {
@@ -82,7 +82,7 @@ const mockProjects = [
     raised: 28000,
     backers: 95,
     daysLeft: 12,
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop",
     category: "Food & Drink",
     featured: false,
   },
@@ -123,8 +123,8 @@ export default function ProjectsPage() {
       {/* Header */}
       <div className="bg-base-200 py-8">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-4">Discover Projects</h1>
-          <p className="text-center text-lg opacity-70 mb-8">Support innovative ideas and bring them to life</p>
+          <h1 className="text-4xl font-bold text-center mb-4">Village needs</h1>
+          <p className="text-center text-lg opacity-70 mb-8">Explore what are current needs of the village</p>
 
           {/* Search and Filters */}
           <div className="max-w-4xl mx-auto">

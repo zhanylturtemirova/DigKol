@@ -33,8 +33,8 @@ const Home: NextPage = () => {
             <Link href="/projects" className="card bg-base-200 hover:bg-base-300 transition-colors cursor-pointer">
               <div className="card-body text-center">
                 <RocketLaunchIcon className="h-12 w-12 mx-auto mb-4 text-primary" />
-                <h2 className="card-title justify-center">Discover Projects</h2>
-                <p className="text-sm opacity-70">Browse and support innovative crowdfunding campaigns</p>
+                <h2 className="card-title justify-center">Village needs</h2>
+                <p className="text-sm opacity-70">Explore what are current needs of the village</p>
               </div>
             </Link>
 
