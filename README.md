@@ -1,6 +1,6 @@
 # Digital Kolkhoz
 
-an Umrella project to build shared economy and shared ownership of assets for dedicated village's communities living.
+an Umrella project (a bundle of social alls) to build shared economy and shared ownership of assets for dedicated village's communities living.
 
 ## TODO:
 - [ ] Member A bought 10% of greenhouse A. (smart-contract event recorded)
@@ -16,13 +16,14 @@ an Umrella project to build shared economy and shared ownership of assets for de
 ### HOW
 - Remote working villagers
 - Sharing goods, services, vehicles, facilities
+- Cashless community. Nothing to store under the pillow. Nothing to hide. Nothing to steal.
 - Strong NO to investors-owning real estate 
 - Strong NO to gentrification
 
 ### WHAT
 
 1. Paperless management
-2. ...
+2. Karma (reputation) system (insired by Status.network's DevRel Kelly)
 3. Crowdfunding
 4. Voting for buying shared assets/property
 5. Auction
@@ -36,9 +37,10 @@ an Umrella project to build shared economy and shared ownership of assets for de
     - heavy duty vehicles
     - shared goods and tools
     - shared vehicles (RV, 4x4 car, truck)
-    - facilities (water supply, charcoil, charging station, solar panels, Starlink, generators)
+    - facilities (water supply, charcoil, gas for shared vehicles, charging station, solar panels, Starlink, diesel generators)
     - services (security, trash collecting)
     - community zones (playground, coffeeshop, workshops, sport zones, recreational zone)
+    - community events (festivals, workshops, weddings ane other "Toй" events)
 
 
 ## Events:
@@ -80,7 +82,7 @@ in 5 years...
 
 
 
-## Questions
+### Questions
   - May member A sell their part for bigger price in 5-10 years?
   - What if FutureGreenhouse's wallet contains 20% of total money?
   - What if members who didn't vote want to join later?
@@ -89,3 +91,7 @@ in 5 years...
   - How to enroll money?
   - How to get your money back? 
   - How to pass ownership right from member A to member A's family?
+
+
+### Ideas to be verified/discussed:
+  - New candidate for kolkhoz member should be voted by existing members?
