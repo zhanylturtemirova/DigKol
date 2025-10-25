@@ -1,80 +1,74 @@
-# 🏗 Scaffold-ETH 2
+# Digital Kolkhoz
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+### WHY
+### HOW
+### WHAT
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+1. ...
+2. ...
+3. Crowdfunding
+4. Voting for buying shared assets/property
+5. Auction
 
-⚙️ Built using NextJS, RainbowKit, Foundry, Wagmi, Viem, and Typescript.
+---
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
-
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
-
-## Requirements
-
-Before you begin, you need to install the following tools:
-
-- [Node (>= v20.18.3)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
-
-## Quickstart
-
-To get started with Scaffold-ETH 2, follow the steps below:
-
-1. Install dependencies if it was skipped in CLI:
-
-```
-cd my-dapp-example
-yarn install
-```
-
-2. Run a local network in the first terminal:
-
-```
-yarn chain
-```
-
-This command starts a local Ethereum network using Foundry. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `packages/foundry/foundry.toml`.
-
-3. On a second terminal, deploy the test contract:
-
-```
-yarn deploy
-```
-
-This command deploys a test smart contract to the local network. The contract is located in `packages/foundry/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/foundry/script` to deploy the contract to the network. You can also customize the deploy script.
-
-4. On a third terminal, start your NextJS app:
-
-```
-yarn start
-```
-
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
-
-Run smart contract test with `yarn foundry:test`
-
-- Edit your smart contracts in `packages/foundry/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/foundry/script`
+# Crowdfunding
+  - Possible Assets:
+    - real estate
+    - livestock (cows, chicken, buffalos)
+    - heavy duty vehicles
+    - shared goods and tools
+    - shared vehicles (RV, 4x4 car, truck)
+    - facilities (water supply, charcoil, charging station, solar panels, Starlink, generators)
+    - services (security, trash collecting)
+    - community zones (playground, coffeeshop, workshops, sport zones, recriational zone)
 
 
-## Documentation
+## Events:
+- Who/What/When
+  ### Voting
+  - idea "Let's grow own vegetables" added in pool of ideas 
+  - community voting for the idea: priority, possible options, possible prices
+    - Member A voted for idea "Greenhouse" (smart-contract event recorded)
+    - Member B voted for idea "Greenhouse" (smart-contract event recorded)
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
+  - Voting finished. Idea "Greenhouse" won with 3 votes. (smart-contract event recorded)
+  - FutureGreenhouse's wallet created for 3 voters (smart-contract event recorded)
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+  ### Crowdfunding
+  - FutureGreenhouse's wallet created (smart-contract event recorded)
+  - Member A bought 10% of greenhouse A. (smart-contract event recorded)
+  - FutureGreenhouse's wallet received money from member A for buying greenhouse A. (smart-contract event recorded)
 
-## Contributing to Scaffold-ETH 2
+  - Member B bought 10% of greenhouse A. (smart-contract event recorded)
+  - FutureGreenhouse's wallet received money from member B for buying greenhouse A. (smart-contract event recorded)
+  - Member AA bought 25% of greenhouse A. (smart-contract event recorded)
 
-We welcome contributions to Scaffold-ETH 2!
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+  - Shared fund released 40% of money to buy a greenfield located in %location_here% (smart-contract event recorded)
+  - Building process paid from shared fund (smart-contract event recorded)
+  - Greenhouse A building finished
+
+
+
+  in 1 yea...:
+  - Greenhouse A needs to be maintained. Shared fund released 5% of money for maintenance (smart-contract event recorded)
+
+
+
+
+
+in 5 years...
+  - Member A sold 10% of their ownership of greenhouse A to Member C. (smart-contract event recorded)
+
+
+
+## Questions
+  - May member A sell their part for bigger price in 5-10 years?
+  - What if FutureGreenhouse's wallet contains 20% of total money?
+  - What if members who didn't vote want to join later?
+  - What if members who didn't vote want to use already built shared assets? How paid members will be compensated?
+
+  - How to enroll money?
+  - How to get your money back? 
+  - How to pass ownership right from member A to member A's family?
