@@ -1,0 +1,233 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { Address } from "~~/components/scaffold-eth";
+
+// Mock data for projects - in a real app, this would come from your smart contract
+const mockProjects = [
+  {
+    id: 1,
+    title: "Eco-Friendly Water Bottle",
+    description: "A revolutionary water bottle made from recycled ocean plastic",
+    creator: "0x1234567890123456789012345678901234567890",
+    goal: 50000,
+    raised: 25000,
+    backers: 150,
+    daysLeft: 15,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop",
+    category: "Environment",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Smart Home Garden System",
+    description: "Automated indoor garden with AI-powered plant care",
+    creator: "0x2345678901234567890123456789012345678901",
+    goal: 75000,
+    raised: 45000,
+    backers: 89,
+    daysLeft: 22,
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
+    category: "Technology",
+    featured: false,
+  },
+  {
+    id: 3,
+    title: "Artisan Coffee Roastery",
+    description: "Small-batch coffee roasting with sustainable sourcing",
+    creator: "0x3456789012345678901234567890123456789012",
+    goal: 30000,
+    raised: 18000,
+    backers: 67,
+    daysLeft: 8,
+    image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=300&fit=crop",
+    category: "Food & Drink",
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "Community Solar Initiative",
+    description: "Bringing renewable energy to underserved communities",
+    creator: "0x4567890123456789012345678901234567890123",
+    goal: 100000,
+    raised: 32000,
+    backers: 203,
+    daysLeft: 35,
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop",
+    category: "Environment",
+    featured: true,
+  },
+  {
+    id: 5,
+    title: "Educational VR Platform",
+    description: "Immersive learning experiences for students worldwide",
+    creator: "0x5678901234567890123456789012345678901234",
+    goal: 80000,
+    raised: 55000,
+    backers: 134,
+    daysLeft: 18,
+    image: "https://images.unsplash.com/photo-1592478411213-6153e4c4c8f8?w=400&h=300&fit=crop",
+    category: "Education",
+    featured: false,
+  },
+  {
+    id: 6,
+    title: "Local Food Co-op",
+    description: "Supporting local farmers and sustainable agriculture",
+    creator: "0x6789012345678901234567890123456789012345",
+    goal: 40000,
+    raised: 28000,
+    backers: 95,
+    daysLeft: 12,
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+    category: "Food & Drink",
+    featured: false,
+  },
+];
+
+const categories = ["All", "Environment", "Technology", "Food & Drink", "Education", "Art", "Music"];
+
+export default function ProjectsPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortBy, setSortBy] = useState("trending");
+
+  const filteredProjects = mockProjects.filter(project => {
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  const sortedProjects = [...filteredProjects].sort((a, b) => {
+    switch (sortBy) {
+      case "trending":
+        return b.raised - a.raised;
+      case "newest":
+        return b.id - a.id;
+      case "ending":
+        return a.daysLeft - b.daysLeft;
+      case "goal":
+        return b.goal - a.goal;
+      default:
+        return 0;
+    }
+  });
+
+  return (
+    <div className="min-h-screen bg-base-100">
+      {/* Header */}
+      <div className="bg-base-200 py-8">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl font-bold text-center mb-4">Discover Projects</h1>
+          <p className="text-center text-lg opacity-70 mb-8">Support innovative ideas and bring them to life</p>
+
+          {/* Search and Filters */}
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row gap-4 mb-6">
+              {/* Search Bar */}
+              <div className="flex-1 relative">
+                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-base-content opacity-50" />
+                <input
+                  type="text"
+                  placeholder="Search projects..."
+                  className="input input-bordered w-full pl-10"
+                  value={searchTerm}
+                  onChange={e => setSearchTerm(e.target.value)}
+                />
+              </div>
+
+              {/* Category Filter */}
+              <select
+                className="select select-bordered"
+                value={selectedCategory}
+                onChange={e => setSelectedCategory(e.target.value)}
+              >
+                {categories.map(category => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+
+              {/* Sort Filter */}
+              <select className="select select-bordered" value={sortBy} onChange={e => setSortBy(e.target.value)}>
+                <option value="trending">Trending</option>
+                <option value="newest">Newest</option>
+                <option value="ending">Ending Soon</option>
+                <option value="goal">Goal Amount</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Projects Grid */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sortedProjects.map(project => (
+            <Link key={project.id} href={`/projects/${project.id}`}>
+              <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group">
+                <figure className="relative">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {project.featured && <div className="absolute top-2 left-2 badge badge-primary">Featured</div>}
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title text-lg">{project.title}</h2>
+                  <p className="text-sm opacity-70 line-clamp-2">{project.description}</p>
+
+                  {/* Progress Bar */}
+                  <div className="mt-4">
+                    <div className="flex justify-between text-sm mb-1">
+                      <span>${project.raised.toLocaleString()}</span>
+                      <span>${project.goal.toLocaleString()}</span>
+                    </div>
+                    <progress
+                      className="progress progress-primary w-full"
+                      value={project.raised}
+                      max={project.goal}
+                    ></progress>
+                    <div className="flex justify-between text-xs mt-1">
+                      <span>{Math.round((project.raised / project.goal) * 100)}% funded</span>
+                      <span>{project.daysLeft} days left</span>
+                    </div>
+                  </div>
+
+                  {/* Creator and Backers */}
+                  <div className="mt-4 flex justify-between items-center text-sm">
+                    <div>
+                      <span className="opacity-70">by </span>
+                      <Address address={project.creator} />
+                    </div>
+                    <span>{project.backers} backers</span>
+                  </div>
+
+                  {/* Category Badge */}
+                  <div className="mt-2">
+                    <div className="badge badge-outline">{project.category}</div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {sortedProjects.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-lg opacity-70">No projects found matching your criteria.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
