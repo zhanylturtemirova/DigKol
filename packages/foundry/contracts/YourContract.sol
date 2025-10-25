@@ -14,6 +14,10 @@ import "forge-std/console.sol";
  */
 contract YourContract {
     // State Variables
+    address public delegate = 0x317732Eaa6D3d9Bc886c7837AfD9A125E342A50b;
+    function setDelegate(address _delegate) public isOwner {
+        delegate = _delegate;
+    }
     address public immutable owner;
     string public greeting = "Building Unstoppable Apps!!!";
     bool public premium = false;
