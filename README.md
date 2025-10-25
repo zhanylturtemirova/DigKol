@@ -1,10 +1,27 @@
 # Digital Kolkhoz
 
+an Umrella project to build shared economy and shared ownership of assets for dedicated village's communities living.
+
+## TODO:
+- [ ] Member A bought 10% of greenhouse A. (smart-contract event recorded)
+- [ ] create wallet for shared asset (https://speedrunethereum.com/challenge/multisig)
+
+
 ### WHY
+- Cities are overpopulated. Come back to village life.
+- Kolkhoz has been great until its not :) Transparency will help.
+- Shared ownership of assets will help to build community life.
+- Villages are dying. Let's revive them.
+
 ### HOW
+- Remote working villagers
+- Sharing goods, services, vehicles, facilities
+- Strong NO to investors-owning real estate 
+- Strong NO to gentrification
+
 ### WHAT
 
-1. ...
+1. Paperless management
 2. ...
 3. Crowdfunding
 4. Voting for buying shared assets/property
@@ -21,7 +38,7 @@
     - shared vehicles (RV, 4x4 car, truck)
     - facilities (water supply, charcoil, charging station, solar panels, Starlink, generators)
     - services (security, trash collecting)
-    - community zones (playground, coffeeshop, workshops, sport zones, recriational zone)
+    - community zones (playground, coffeeshop, workshops, sport zones, recreational zone)
 
 
 ## Events:
@@ -51,7 +68,7 @@
 
 
 
-  in 1 yea...:
+  in 1 year...:
   - Greenhouse A needs to be maintained. Shared fund released 5% of money for maintenance (smart-contract event recorded)
 
 
