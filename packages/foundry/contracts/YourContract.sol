@@ -8,8 +8,8 @@ import "forge-std/console.sol";
 // import "@openzeppelin/contracts/access/Ownable.sol";
 
 // Event: Member A bought 10% of greenhouse A
-contract MemberBuySharedAssetContract {
-// contract YourContract {
+// contract MemberBuySharedAssetContract {
+contract YourContract {
     address public immutable owner;
 
     constructor(address _owner) {
