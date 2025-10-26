@@ -4,8 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
+import { Address, Balance } from "~~/components/scaffold-eth";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
+import { useDeployedContractInfo } from "~~/hooks/scaffold-eth";
 
 // Mock data for projects - in a real app, this would come from your smart contract
 const mockProjects = [
@@ -107,6 +108,11 @@ export default function ProjectsPage() {
     functionName: "getGreenhouseInfo",
   });
 
+  // Get VillageContract address for balance display
+  const { data: villageContractInfo } = useDeployedContractInfo({
+    contractName: "VillageContract",
+  });
+
   // Function to get real-time project data
   const getProjectWithContractData = (project: any) => {
     if (project.id === 1 && cowInfo) {
@@ -178,7 +184,18 @@ export default function ProjectsPage() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-center mb-4">Village needs</h1>
           <p className="text-center text-lg opacity-70 mb-8">Explore what are current needs of the village</p>
-          {/* TODO: show Village Treasury wallet balance */}
+
+          {/* Village Treasury Balance */}
+          {villageContractInfo?.address && (
+            <div className="flex justify-center mb-6">
+              <div className="bg-base-100 border border-base-300 rounded-lg px-4 py-3 shadow-md">
+                <div className="flex items-center gap-3">
+                  <span className="font-semibold text-sm opacity-70">Village Treasury:</span>
+                  <Balance address={villageContractInfo.address} className="px-0 h-auto min-h-0" usdMode={true} />
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Search and Filters */}
           <div className="max-w-4xl mx-auto">
