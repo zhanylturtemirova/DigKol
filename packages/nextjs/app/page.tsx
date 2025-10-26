@@ -1,21 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import type { NextPage } from "next";
-import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon, RocketLaunchIcon } from "@heroicons/react/24/outline";
-import { Address, AddressInput } from "~~/components/scaffold-eth";
-import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 
 const Home: NextPage = () => {
-  const { address: connectedAddress } = useAccount();
-  const { data: delegate } = useScaffoldReadContract({
-    contractName: "YourContract",
-    functionName: "delegate",
-  });
-  const [newDelegate, setNewDelegate] = useState("");
-
   return (
     <>
       <div className="flex items-center flex-col grow pt-10">
@@ -54,21 +43,6 @@ const Home: NextPage = () => {
                 <p className="text-sm opacity-70">Explore transactions and addresses</p>
               </div>
             </Link>
-          </div>
-
-          {/* Connection Status */}
-          <div className="card bg-base-200 p-6">
-            <h2 className="card-title mb-4">Connection Status</h2>
-            <div className="flex justify-center items-center space-x-2 flex-col">
-              <p className="my-2 font-medium">Connected Address:</p>
-              <Address address={connectedAddress} />
-            </div>
-            <div className="mt-4 flex justify-center items-center space-x-2 flex-col">
-              <Address address={delegate} />
-            </div>
-            <div className="mt-4 flex justify-center items-center space-x-2 flex-col">
-              <AddressInput value={newDelegate} onChange={setNewDelegate} />
-            </div>
           </div>
         </div>
       </div>

@@ -6,7 +6,9 @@ an Umrella project (a bundle of social alls) to build shared economy and shared 
 
 ## TODO:
 - [x] Member A bought 10% of greenhouse A. (smart-contract event recorded)
-- [ ] when click "Buy 10%" button on UI -> trigger smart-contract event
+- [x] when click "Buy 10%" button on UI -> trigger smart-contract event
+- [x] update UI percentage owned after each buy
+- [ ] change member quantity when purchased
 - [ ] create wallet for shared asset (https://speedrunethereum.com/challenge/multisig)
 
 

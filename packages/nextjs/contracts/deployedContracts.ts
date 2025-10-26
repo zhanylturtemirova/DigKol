@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     YourContract: {
-      address: "0x700b6a60ce7eaaea56f065753d8dcb9653dbad35",
+      address: "0xc6b8fbf96cf7bbe45576417ec2163acecfa88ecc",
       abi: [
         {
           type: "constructor",
@@ -21,31 +21,214 @@ const deployedContracts = {
           stateMutability: "nonpayable",
         },
         {
-          type: "receive",
+          type: "function",
+          name: "assignCowIntoLivestockFund",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "buyGreenhouseShares",
+          inputs: [
+            {
+              name: "_sharePercentage",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
           stateMutability: "payable",
         },
         {
           type: "function",
-          name: "delegate",
-          inputs: [],
-          outputs: [
+          name: "buyLivestockShares",
+          inputs: [
+            {
+              name: "_sharePercentage",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "communityZones",
+          inputs: [
             {
               name: "",
-              type: "address",
-              internalType: "address",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "name",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "pricePerShare",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "sharesSold",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "active",
+              type: "bool",
+              internalType: "bool",
             },
           ],
           stateMutability: "view",
         },
         {
           type: "function",
-          name: "greeting",
+          name: "cows",
+          inputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "name",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "pricePerShare",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "sharesSold",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "active",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "createGreenhouseA",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getCowAvailableShares",
           inputs: [],
           outputs: [
             {
               name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getCowInfo",
+          inputs: [],
+          outputs: [
+            {
+              name: "name",
               type: "string",
               internalType: "string",
+            },
+            {
+              name: "pricePerShare",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "sharesSold",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "sharesAvailable",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "active",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getGreenhouseAvailableShares",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getGreenhouseInfo",
+          inputs: [],
+          outputs: [
+            {
+              name: "name",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "pricePerShare",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "sharesSold",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "sharesAvailable",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "active",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "nextAssetId",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
             },
           ],
           stateMutability: "view",
@@ -64,117 +247,45 @@ const deployedContracts = {
           stateMutability: "view",
         },
         {
-          type: "function",
-          name: "premium",
-          inputs: [],
-          outputs: [
-            {
-              name: "",
-              type: "bool",
-              internalType: "bool",
-            },
-          ],
-          stateMutability: "view",
-        },
-        {
-          type: "function",
-          name: "setDelegate",
-          inputs: [
-            {
-              name: "_delegate",
-              type: "address",
-              internalType: "address",
-            },
-          ],
-          outputs: [],
-          stateMutability: "nonpayable",
-        },
-        {
-          type: "function",
-          name: "setGreeting",
-          inputs: [
-            {
-              name: "_newGreeting",
-              type: "string",
-              internalType: "string",
-            },
-          ],
-          outputs: [],
-          stateMutability: "payable",
-        },
-        {
-          type: "function",
-          name: "totalCounter",
-          inputs: [],
-          outputs: [
-            {
-              name: "",
-              type: "uint256",
-              internalType: "uint256",
-            },
-          ],
-          stateMutability: "view",
-        },
-        {
-          type: "function",
-          name: "userGreetingCounter",
-          inputs: [
-            {
-              name: "",
-              type: "address",
-              internalType: "address",
-            },
-          ],
-          outputs: [
-            {
-              name: "",
-              type: "uint256",
-              internalType: "uint256",
-            },
-          ],
-          stateMutability: "view",
-        },
-        {
-          type: "function",
-          name: "withdraw",
-          inputs: [],
-          outputs: [],
-          stateMutability: "nonpayable",
-        },
-        {
           type: "event",
-          name: "GreetingChange",
+          name: "SharePurchased",
           inputs: [
             {
-              name: "greetingSetter",
+              name: "assetId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "buyer",
               type: "address",
               indexed: true,
               internalType: "address",
             },
             {
-              name: "newGreeting",
-              type: "string",
-              indexed: false,
-              internalType: "string",
-            },
-            {
-              name: "premium",
-              type: "bool",
-              indexed: false,
-              internalType: "bool",
-            },
-            {
-              name: "value",
+              name: "sharePercentage",
               type: "uint256",
               indexed: false,
               internalType: "uint256",
+            },
+            {
+              name: "totalPrice",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+            {
+              name: "assetName",
+              type: "string",
+              indexed: false,
+              internalType: "string",
             },
           ],
           anonymous: false,
         },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 1,
+      deployedOnBlock: 127,
     },
   },
 } as const;
