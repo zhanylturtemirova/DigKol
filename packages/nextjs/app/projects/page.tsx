@@ -65,17 +65,17 @@ const mockProjects = [
     title: "Greenhouse, East wing",
     description: "Building a community greenhouse to grow fresh produce year-round",
     creator: "0x5678901234567890123456789012345678901234",
-    goal: 80000,
-    raised: 55000,
+    goal: 8000,
+    raised: 1500,
     backers: 134,
     daysLeft: 18,
     image: "https://images.unsplash.com/photo-1661264047307-4d692250a7ac?w=400&h=300&fit=crop",
-    category: "CommunityZones",
+    category: "Community Zones",
     featured: false,
   },
   {
     id: 6,
-    title: "Local Food Co-op",
+    title: "Local Food from another village",
     description: "Supporting local farmers and sustainable agriculture",
     creator: "0x6789012345678901234567890123456789012345",
     goal: 40000,
@@ -83,12 +83,12 @@ const mockProjects = [
     backers: 95,
     daysLeft: 12,
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop",
-    category: "Food & Drink",
+    category: "Community Zones",
     featured: false,
   },
 ];
 
-const categories = ["All", "Environment", "Technology", "Food & Drink", "Education", "Art", "Music"];
+const categories = ["All", "Power supply", "Community Zones", "Livestock", "Technology"];
 
 export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("");

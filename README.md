@@ -1,15 +1,17 @@
 # Digital Kolkhoz
 
-Umbrella-project for villages to co-own assets, vote, and crowdfund using smart contracts. No hidden money, no landlords, everything highly transparent and community-owned.
+An Umbrella-app (a bundle of social apps) for villagers to co-own real assets, vote, and crowdfund using smart contracts. All financial flows are open and traceable. Every transaction is recorded on-chain, so there is no space for hidden accounting, no silent money leaks. Everything is transparent and community-owned.
 
-an Umrella project (a bundle of social alls) to build shared economy and shared ownership of assets for dedicated village's communities living.
 
 ## TODO:
 - [x] Member A bought 10% of greenhouse A. (smart-contract event recorded)
 - [x] when click "Buy 10%" button on UI -> trigger smart-contract event
 - [x] update UI percentage owned after each buy
 - [ ] change member quantity when purchased
-- [ ] create wallet for shared asset (https://speedrunethereum.com/challenge/multisig)
+- [x] change funded money and goal money on UI
+- [ ] show same data on catalog page
+- [ ] show Village Treasury balance on UI
+- [ ] better look for Not enough shares available
 
 
 ### WHY

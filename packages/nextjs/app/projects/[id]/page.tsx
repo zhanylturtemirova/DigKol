@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import { parseEther } from "viem";
 import { ArrowLeftIcon, HeartIcon, ShareIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartSolidIcon } from "@heroicons/react/24/solid";
-import { Address, EtherInput } from "~~/components/scaffold-eth";
+import { Address } from "~~/components/scaffold-eth";
 import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 // Mock data - in production, this will come from your smart contract
@@ -54,27 +54,93 @@ const mockProjectData = {
     rewards: [
       {
         id: 1,
-        title: "Small stake",
+        title: "Fresh milk each day",
         description: "5% ownership share in the community cow",
         amount: 5,
-        backers: 45,
-        estimatedDelivery: "Immediate",
+        backers: 5,
+        estimatedDelivery: "Jan 2026",
       },
       {
         id: 2,
-        title: "Medium stake",
+        title: "Fresh milk, butter, and cheese",
         description: "10% ownership share in the community cow",
         amount: 10,
-        backers: 78,
-        estimatedDelivery: "Immediate",
+        backers: 10,
+        estimatedDelivery: "April 2026",
       },
       {
         id: 3,
-        title: "Large stake",
-        description: "25% ownership share in the community cow",
+        title: "All dairy products plus newborn calf share",
+        description: "25% ownership share in the community cow and calf",
         amount: 25,
-        backers: 27,
-        estimatedDelivery: "Immediate",
+        backers: 25,
+        estimatedDelivery: "November 2026",
+      },
+    ],
+  },
+  5: {
+    id: 5,
+    title: "Greenhouse A, East wing",
+    description: "Shared greenhouse to grow fresh produce year-round",
+    longDescription: `
+      A community greenhouse offers numerous benefits, including increased food security, community engagement, and environmental sustainability.
+
+      Benefits
+        •	Fresh Produce – access to a variety of fruits and vegetables year-round.
+        •	Educational Opportunities – hands-on learning about gardening and sustainability.
+        •	Community Building – a space for neighbors to collaborate and connect.
+        •	Environmental Impact – reduced carbon footprint from local food production.
+        •	Economic Benefits – potential for selling surplus produce to generate income.
+
+      Responsibilities & Risks
+        •	Shared Maintenance – all members must contribute to upkeep and care.
+        •	Seasonal Challenges – weather and pests can impact yields.
+        •	Initial Costs – funding needed for setup and materials.
+        •	Decision-Making – the community must agree on crops, distribution, and sales.
+        •	Commitment – ongoing participation is essential for success.
+
+      Example Timeline
+        •	Month 1: Planning & fundraising
+        •	Month 2: Site preparation and construction
+        •	Month 3: Planting begins
+        •	Month 7: First harvest expected
+        •	Year 1+: Continuous planting, harvesting, and community events
+    `,
+    creator: "0x1234567890123456789012345678901234567890",
+    creatorName: "Zhanyl H.",
+    goal: 8000,
+    raised: 1500,
+    backers: 15,
+    daysLeft: 15,
+    image: "https://images.unsplash.com/photo-1661264047307-4d692250a7ac?w=400&h=300&fit=crop",
+    category: "Community Zones",
+    featured: false,
+    risks:
+      "Maintaining a greenhouse requires regular care, including watering, pest control, and seasonal planting. The community must share responsibilities and costs. Weather conditions and pests can affect crop yields. Clear agreements on crop selection, distribution, and sales are essential to avoid conflicts.",
+    rewards: [
+      {
+        id: 1,
+        title: "1 fixed section of ground, planting rights",
+        description: "5% ownership share in the community greenhouse",
+        amount: 5,
+        backers: 5,
+        estimatedDelivery: "Jan 2026",
+      },
+      {
+        id: 2,
+        title: "3 fixed sections of ground, planting rights",
+        description: "10% ownership share in the community greenhouse",
+        amount: 15,
+        backers: 15,
+        estimatedDelivery: "April 2026",
+      },
+      {
+        id: 3,
+        title: "5 fixed sections of ground, planting rights",
+        description: "25% ownership share in the community greenhouse",
+        amount: 25,
+        backers: 25,
+        estimatedDelivery: "November 2026",
       },
     ],
   },
@@ -228,7 +294,7 @@ export default function ProjectDetailPage() {
             {/* Project Info */}
             <div className="mb-8">
               <div className="flex items-center gap-4 mb-4">
-                <h1 className="text-3xl font-bold">{project.title}</h1>
+                <h1 className="text-3xl font-bold">{projectProgress.assetName || project.title}</h1>
                 <button onClick={() => setIsLiked(!isLiked)} className="btn btn-ghost btn-sm">
                   {isLiked ? <HeartSolidIcon className="h-6 w-6 text-red-500" /> : <HeartIcon className="h-6 w-6" />}
                 </button>
@@ -250,7 +316,7 @@ export default function ProjectDetailPage() {
             {/* Progress Section */}
             <div className="card bg-base-200 p-6 mb-8">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold">{projectProgress.sharesSold}% sold</h2>
+                <h2 className="text-2xl font-bold">{projectProgress.sharesSold}% shares sold</h2>
                 <span className="text-lg">{projectProgress.sharesAvailable}% available</span>
               </div>
               <progress
@@ -259,8 +325,8 @@ export default function ProjectDetailPage() {
                 max={100}
               ></progress>
               <div className="flex justify-between text-sm">
-                <span>{projectProgress.sharesSold}% shares sold</span>
-                <span>{projectProgress.sharesAvailable}% remaining</span>
+                <span>${(project.goal / 100) * projectProgress.sharesSold} funded</span>
+                <span>${project.goal - (project.goal / 100) * projectProgress.sharesSold} remaining</span>
               </div>
               <div className="mt-4 text-center">
                 <span className="text-lg font-semibold">{project.backers} backers</span>
@@ -294,15 +360,7 @@ export default function ProjectDetailPage() {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="card bg-base-200 p-6 sticky top-4">
-              <h3 className="text-xl font-bold mb-4">Confirm & Fund</h3>
-
-              {/* Custom Amount */}
-              <div className="mb-6">
-                <label className="label">
-                  <span className="label-text">Custom Share Percentage (1-100%)</span>
-                </label>
-                <EtherInput value={customAmount} onChange={setCustomAmount} placeholder="Enter share percentage" />
-              </div>
+              <h3 className="text-xl font-bold mb-4">Vote by purchasing shares</h3>
 
               {/* Rewards */}
               <div className="mb-6">
