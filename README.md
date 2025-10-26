@@ -9,7 +9,7 @@ An Umbrella-app (a bundle of social apps) for villagers to co-own real assets, v
 - [x] update UI percentage owned after each buy
 - [ ] change member quantity when purchased
 - [x] change funded money and goal money on UI
-- [ ] show same data on catalog page
+- [x] show same data (percentage, money rased etc) on catalog page
 - [ ] show Village Treasury balance on UI
 - [ ] better look for Not enough shares available
 

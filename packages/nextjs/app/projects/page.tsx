@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/scaffold-eth";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 
 // Mock data for projects - in a real app, this would come from your smart contract
 const mockProjects = [
@@ -26,8 +27,8 @@ const mockProjects = [
     title: "Garden Autonomous Watering System",
     description: "Automated irrigation system for gardens",
     creator: "0x2345678901234567890123456789012345678901",
-    goal: 75000,
-    raised: 45000,
+    goal: 1500,
+    raised: 540,
     backers: 89,
     daysLeft: 22,
     image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
@@ -78,8 +79,8 @@ const mockProjects = [
     title: "Local Food from another village",
     description: "Supporting local farmers and sustainable agriculture",
     creator: "0x6789012345678901234567890123456789012345",
-    goal: 40000,
-    raised: 28000,
+    goal: 400,
+    raised: 280,
     backers: 95,
     daysLeft: 12,
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop",
@@ -95,7 +96,59 @@ export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("trending");
 
-  const filteredProjects = mockProjects.filter(project => {
+  // Read contract data
+  const { data: cowInfo } = useScaffoldReadContract({
+    contractName: "YourContract",
+    functionName: "getCowInfo",
+  });
+
+  const { data: greenhouseInfo } = useScaffoldReadContract({
+    contractName: "YourContract",
+    functionName: "getGreenhouseInfo",
+  });
+
+  // Function to get real-time project data
+  const getProjectWithContractData = (project: any) => {
+    if (project.id === 1 && cowInfo) {
+      // Livestock project (cow)
+      const [name, pricePerShare, sharesSold, sharesAvailable, active] = cowInfo;
+      const sharesSoldPercent = Number(sharesSold);
+      const realRaised = Math.round((project.goal / 100) * sharesSoldPercent);
+
+      return {
+        ...project,
+        title: name || project.title,
+        raised: realRaised,
+        sharesSold: sharesSoldPercent,
+        pricePerShare: Number(pricePerShare),
+        sharesAvailable: Number(sharesAvailable),
+        active: active,
+      };
+    } else if (project.id === 5 && greenhouseInfo) {
+      // Greenhouse project
+      const [name, pricePerShare, sharesSold, sharesAvailable, active] = greenhouseInfo;
+      const sharesSoldPercent = Number(sharesSold);
+      const realRaised = Math.round((project.goal / 100) * sharesSoldPercent);
+
+      return {
+        ...project,
+        title: name || project.title,
+        raised: realRaised,
+        sharesSold: sharesSoldPercent,
+        pricePerShare: Number(pricePerShare),
+        sharesAvailable: Number(sharesAvailable),
+        active: active,
+      };
+    }
+
+    // Return original project if no contract data available
+    return project;
+  };
+
+  // Apply contract data to projects
+  const projectsWithContractData = mockProjects.map(getProjectWithContractData);
+
+  const filteredProjects = projectsWithContractData.filter(project => {
     const matchesSearch =
       project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       project.description.toLowerCase().includes(searchTerm.toLowerCase());
@@ -181,6 +234,10 @@ export default function ProjectsPage() {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   {project.featured && <div className="absolute top-2 left-2 badge badge-primary">Featured</div>}
+                  {project.sharesSold >= 100 && (
+                    <div className="absolute top-2 right-2 badge badge-success">🎉 FUNDED</div>
+                  )}
+                  {project.active === false && <div className="absolute top-2 right-2 badge badge-error">Inactive</div>}
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title text-lg">{project.title}</h2>
@@ -198,8 +255,17 @@ export default function ProjectsPage() {
                       max={project.goal}
                     ></progress>
                     <div className="flex justify-between text-xs mt-1">
-                      <span>{Math.round((project.raised / project.goal) * 100)}% funded</span>
-                      <span>{project.daysLeft} days left</span>
+                      {project.sharesSold !== undefined ? (
+                        <>
+                          <span>{project.sharesSold}% shares sold</span>
+                          <span>{project.sharesAvailable}% available</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>{Math.round((project.raised / project.goal) * 100)}% funded</span>
+                          <span>{project.daysLeft} days left</span>
+                        </>
+                      )}
                     </div>
                   </div>
 
