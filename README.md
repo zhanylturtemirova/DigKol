@@ -2,17 +2,8 @@
 
 An Umbrella-app (a bundle of social apps) for villagers to co-own real assets, vote, and crowdfund using smart contracts. All financial flows are open and traceable. Every transaction is recorded on-chain, so there is no space for hidden accounting, no silent money leaks. Everything is transparent and community-owned.
 
-
-## TODO:
-- [x] Member A bought 10% of greenhouse A. (smart-contract event recorded)
-- [x] when click "Buy 10%" button on UI -> trigger smart-contract event
-- [x] update UI percentage owned after each buy
-- [ ] change member quantity when purchased
-- [x] change funded money and goal money on UI
-- [x] show same data (percentage, money rased etc) on catalog page
-- [ ] show Village Treasury balance on UI
-- [ ] better look for Not enough shares available
-
+### WHO
+Villagers who work remotely, earn their income elsewhere and choose to relocate to villages for a lower cost of living and better work–life balance.
 
 ### WHY
 - Cities are overpopulated. Remote work can help people come back to village life.
