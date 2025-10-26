@@ -98,12 +98,12 @@ export default function ProjectsPage() {
 
   // Read contract data
   const { data: cowInfo } = useScaffoldReadContract({
-    contractName: "YourContract",
+    contractName: "VillageContract",
     functionName: "getCowInfo",
   });
 
   const { data: greenhouseInfo } = useScaffoldReadContract({
-    contractName: "YourContract",
+    contractName: "VillageContract",
     functionName: "getGreenhouseInfo",
   });
 
@@ -178,6 +178,7 @@ export default function ProjectsPage() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-center mb-4">Village needs</h1>
           <p className="text-center text-lg opacity-70 mb-8">Explore what are current needs of the village</p>
+          {/* TODO: show Village Treasury wallet balance */}
 
           {/* Search and Filters */}
           <div className="max-w-4xl mx-auto">

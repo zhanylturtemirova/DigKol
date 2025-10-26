@@ -34,7 +34,7 @@ Use the `useScaffoldReadContract` (`packages/nextjs/hooks/scaffold-eth/useScaffo
 Example:
 ```typescript
 const { data: someData } = useScaffoldReadContract({
-  contractName: "YourContract",
+  contractName: "VillageContract",
   functionName: "functionName",
   args: [arg1, arg2], // optional
 });
@@ -47,8 +47,8 @@ Use the `useScaffoldWriteContract` (`packages/nextjs/hooks/scaffold-eth/useScaff
 
 Example:
 ```typescript
-const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract(
-  { contractName: "YourContract" }
+const { writeContractAsync: writeVillageContractAsync } = useScaffoldWriteContract(
+  { contractName: "VillageContract" }
 );
 // Usage (this will send a write transaction to the contract)
 await writeContractAsync({
@@ -74,7 +74,7 @@ const {
   isLoading,
   error,
 } = useScaffoldEventHistory({
-  contractName: "YourContract",
+  contractName: "VillageContract",
   eventName: "GreetingChange",
   watch: true, // optional, if true, the hook will watch for new events
 });

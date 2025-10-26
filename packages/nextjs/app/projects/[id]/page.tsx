@@ -156,19 +156,19 @@ export default function ProjectDetailPage() {
   const [isLiked, setIsLiked] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
 
-  const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract({
-    contractName: "YourContract",
+  const { writeContractAsync: writeVillageContractAsync } = useScaffoldWriteContract({
+    contractName: "VillageContract",
   });
 
   // Read cow info from smart contract
   const { data: cowInfo, refetch: refetchCowInfo } = useScaffoldReadContract({
-    contractName: "YourContract",
+    contractName: "VillageContract",
     functionName: "getCowInfo",
   });
 
   // Read greenhouse info from smart contract
   const { data: greenhouseInfo, refetch: refetchGreenhouseInfo } = useScaffoldReadContract({
-    contractName: "YourContract",
+    contractName: "VillageContract",
     functionName: "getGreenhouseInfo",
   });
 
@@ -191,7 +191,7 @@ export default function ProjectDetailPage() {
       // Determine which function to call based on project category
       const functionName = project.category === "Livestock" ? "buyLivestockShares" : "buyGreenhouseShares";
 
-      await writeYourContractAsync({
+      await writeVillageContractAsync({
         functionName: functionName,
         args: [BigInt(sharePercentage)],
         value: parseEther("0.01"), // You can adjust this based on your pricing logic
