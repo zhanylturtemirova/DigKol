@@ -117,3 +117,12 @@ in 5 years...
 
 ### Ideas to be verified/discussed:
   - New candidate for kolkhoz member should be voted by existing members?
+
+
+
+---
+
+##### How to start? 
+- terminal 1: start `yarn chain` (it starts a local blockchain)
+- terminal 2: start `yarn deploy` (it deploys smart-contracts to the local blockchain)
+- terminal 3: start `yarn start` (it starts the frontend)
