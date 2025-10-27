@@ -2,6 +2,29 @@
 
 An Umbrella-app (a bundle of social apps) for villagers to co-own real assets, vote, and crowdfund using smart contracts. All financial flows are open and traceable. Every transaction is recorded on-chain, so there is no space for hidden accounting, no silent money leaks. Everything is transparent and community-owned.
 
+## TODO:
+FE:
+- [x] Member A bought 10% of greenhouse A. (smart-contract event recorded)
+- [x] when click "Buy 10%" button on UI -> trigger smart-contract event
+- [x] update UI percentage owned after each buy
+- [ ] change member quantity when purchased
+- [x] change funded money and goal money on UI
+- [x] show same data (percentage, money rased etc) on catalog page
+- [ ] show Village Treasury balance on UI
+- [ ] better look for Not enough shares available
+
+BE:
+- [ ] create real asset with a name
+- [ ] store real asset data on-chain (name, location, type)
+- [ ] store member data on-chain (name, wallet address, karma points)
+- [ ] only members of the village can buy shares
+
+
+### Restrictions:
+- Only members of the village can buy shares
+- It should be impossible to own shared assets by investors (non-village members)
+- It should be impossible to own shared assets AND not live in the village
+
 ### WHO
 Villagers who work remotely, earn their income elsewhere and choose to relocate to villages for a lower cost of living and better work–life balance.
 
@@ -85,6 +108,7 @@ in 5 years...
   - What if FutureGreenhouse's wallet contains 20% of total money?
   - What if members who didn't vote want to join later?
   - What if members who didn't vote want to use already built shared assets? How paid members will be compensated?
+  - What if only 20% of needed money is collected and no more members want to join? How to refund money back to members?
 
   - How to enroll money as a community member?
   - How to get your money back as a community member? 
