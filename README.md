@@ -15,6 +15,7 @@ FE:
 
 BE:
 - [ ] create real asset with a name
+- [ ] finalize crowdfunding (when goal reached): collect freezed money from members and transfer to Village Treasury
 - [ ] store real asset data on-chain (name, location, type)
 - [ ] store member data on-chain (name, wallet address, karma points)
 - [ ] only members of the village can buy shares
