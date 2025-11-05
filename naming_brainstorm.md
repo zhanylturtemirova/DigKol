@@ -4,6 +4,10 @@ Farmown (Farmon)
 Cowmunity
 OwnTheField
 
+we share cow
+Qurbani
+(refers to the Islamic practice of Qurbani, where a single cow can be shared by up to seven people. This is a common way for individuals to fulfill their sacrificial obligation during the holiday of Eid al-Adha, with each person contributing a portion of the cost and the animal's meat being divided among them)
+
 
 - own, grow, share
 
